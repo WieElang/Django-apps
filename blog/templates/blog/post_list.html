@@ -1,6 +1,18 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
+    <form class="post-search">
+        <input class="form-search" type="search" placeholder="Input Title..." name="search">
+        <button class="button-search" type="submit">Search</button>
+    </form>
+    <div class="btn-group">
+    {% for type in types %}
+        <form class="post_type">
+        <button class="btn-group" type="submit" name="type_tag" value={{type.id}}>{{type.name}}</button>
+        </form>
+    {% endfor %}
+    </div>
+    <h4>{{count_post}} Post</h4>
     {% for post in posts %}
         <div class="post">
             <div class="date">
@@ -8,6 +20,8 @@
             </div>
             <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
             <p>{{ post.text|linebreaksbr }}</p>
+            <br>
+            <p>{{post.count_comments}} comments</p>
         </div>
     {% endfor %}
 {% endblock %}
