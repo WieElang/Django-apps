@@ -44,3 +44,10 @@ h1, h2, h3, h4 {
 .post h2 a, .post h2 a:visited {
     color: #000000;
 }
+
+.btn-group button{
+    border: 1px solid;
+    padding: 10px 24px;
+    cursor: pointer;
+    float: left;
+}

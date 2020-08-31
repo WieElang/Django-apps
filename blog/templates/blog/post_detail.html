@@ -14,16 +14,16 @@
         <p>{{ post.text|linebreaksbr }}</p>
     </div>
 
-    <h2>New Comment</h2>
+    <h3>New Comment</h3>
     <form method="POST" class="post-form">{% csrf_token %}
-        {{ form.as_p }}
+        {{ comment_form.as_p }}
         <button type="submit" class="save btn btn-default">Save</button>
     </form>
 
     <div class="post">
-        {% for komen in comments %}
-            <p>{{komen.user}} {{komen.date}}</p>
-            <p>{{komen.text}} </p>
+        {% for comment in comments %}
+            <p>{{comment.user}} {{comment.date}}</p>
+            <p>{{comment.text}} </p>
         {% endfor %}
     </div>
 {% endblock %}
